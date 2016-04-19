@@ -1,0 +1,15 @@
+Issue:
+------
+While installing pymssql on windows using command 'pip install pymssql', it throws below error:
+
+ _mssql.c
+ _mssql.c(314) : fatal error C1083: Cannot open include file: 'sqlfront.h': No such file or directory
+ error: command 'C:\\Users\\abhijit.ghongade\\AppData\\Local\\Programs\\Common\\Microsoft\\Visual C++ for Python\\9.0\\VC\\Bin\\amd64\\cl.exe' failed with exit status 2
+ 
+Resolution:
+-----------
+The pip version installed was 7.0.1. So while installing above command it actually fetched .tar.gz file for pymssql module.
+But since this module has dependancy on FreeTDS binaries, you need to download and add binaries seperately which is a tedious process.
+
+Upgrade pip version to latest one (> 8.0)
+Latest pip downloads and installs pymssql wheel file so you dont need to download FreeTDS binnaries at all.
