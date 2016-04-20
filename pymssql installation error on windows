@@ -13,3 +13,7 @@ But since this module has dependancy on FreeTDS binaries, you need to download a
 
 Upgrade pip version to latest one (> 8.0)
 Latest pip downloads and installs pymssql wheel file so you dont need to download FreeTDS binnaries at all.
+
+References:
+-----------
+What is wheel -> http://pythonwheels.com/
