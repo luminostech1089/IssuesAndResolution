@@ -1,1 +1,26 @@
+*********************************************************************************************************************
+I want to create a private network on my ESXi host so that i will be able assign IPs in any range i want and IP address
+and internet will be available to VMs after deployment.
+*********************************************************************************************************************
 
+To do this we need to install pfSense as a VM on ESXi which acts as a router with DHCP enabled.
+[pfSense - is an open source firewall/router based on FreeBSD]
+There are two interfaces are on pfSense. One interface to connect to external world (WAN) and second interface for internal LAN.
+So we just need to provide internet connection to an WAN interface IP address.
+
+Steps:
+1) Download and deploy pfSense VM. (Download Link - https://www.pfsense.org/download/)
+   Detailed installation stesps are mentioned here - https://calvin.me/part-1-install-pfsense-on-esxi-5-5/
+2) Create a network (say "NAT Network" on ESXi). Do not select any physical adapters.
+   To create a new network go to -> ESXi -> Configuration TAB -> Networking -> Add Networking
+3) Power ON the pfsense VM and check if the two interfaces (networks) are properly mapped.
+   VM Network -> WAN
+   NAT Network -> LAN
+4) Deploy the new VM and select network as "NAT NEtwork".
+
+Thats All!!! Now your new VM will have IP address and internet connectivity.
+
+Reference:
+1) To Download pf sense - Download Link - https://www.pfsense.org/download/
+2) Installling pfsense - https://calvin.me/part-1-install-pfsense-on-esxi-5-5/
+3) Configuring pfsense - http://blog.romant.net/technology/configuring-nat-on-esx-and-esxi/
