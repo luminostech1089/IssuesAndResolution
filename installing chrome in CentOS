@@ -1,0 +1,29 @@
+CentOS (7.x) by default comes with Morzila Firefox browser. Installing chrome is not straight forward. 
+Below are the steps to install chrome and address dependencies.
+
+1) Enable proxy on centos, by editing /etc/yum.conf and also change network proxy setting to manual under network tab in centos.
+
+2) Update centos using command
+    yum -y update
+
+3) Enable Google YUM repository:
+    Create a file called /etc/yum.repos.d/google-chrome.repo and add the following lines of code to it.
+
+    [google-chrome]
+    name=google-chrome
+    baseurl=http://dl.google.com/linux/chrome/rpm/stable/$basearch
+    enabled=1
+    gpgcheck=1
+    gpgkey=https://dl-ssl.google.com/linux/linux_signing_key.pub
+
+4) Install google chrome using this comamnd
+
+    yum install google-chrome-stable
+
+    Proceed on all prompts asked while installing.
+
+5) Edit file /usr/bin/google-chrome add "--no-sandbox -test-type" to end of last code line. This will avoid us to open google-chrome using command line and can open it directly and also disable popups.
+
+6) For removing login keyring pop up, run the following command rm
+~/.local/share/keyrings/* and then restart chrome-browser. When you open browser after restart, it will ask for a password. Type the password and save it. Restart the vm and open chrome, it will ask for password and type there password and click on setting "To automatically use this password from next login onwards"
+
