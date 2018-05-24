@@ -1,0 +1,15 @@
+Steps to update timezone in CentOS are as follows:
+
+1) Run the following command to check the present time zone
+
+    ls -l /etc/localtime
+
+2) Search the timezone you want to set using the following command
+
+    timedatectl list-timezones | grep "time_zone" where time_zone is desired one to be set
+
+3) Set timezone using the following command
+
+    timedatectl set-timezone "time_zone" where time_zone is desired one to be set
+
+4) After this, please execute ls -l /etc/localtime to check timezone after change.
