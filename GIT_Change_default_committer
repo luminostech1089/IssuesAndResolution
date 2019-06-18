@@ -1,0 +1,6 @@
+Set the below environment variables in ~/.bashrc or ~/.bash_profile:
+
+GIT_COMMITTER_NAME=”Deploy server”
+GIT_COMMITTER_EMAIL=”deploy@server.dev”
+
+For gitbash on windows, you may need to create ~/.bashrc or ~/.bash_profile if it does not exists
