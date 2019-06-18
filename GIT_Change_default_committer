@@ -7,3 +7,5 @@ GitBash:
 --------
 For gitbash on windows, you may need to create ~/.bashrc or ~/.bash_profile if it does not exists
 Then restart the gitbash
+
+Verify it by executing 'git var -l'
